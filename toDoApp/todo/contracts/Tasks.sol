@@ -20,4 +20,9 @@ contract Tasks {
         countTasks++;
         tasks[countTasks] = Task(countTasks, _content, false);
     }
+
+    // function deleteTask(uint256 countTaskIndex) public {
+    //     delete tasks[countTaskIndex];
+    //     countTasks--;
+    // }
 }
