@@ -2,9 +2,9 @@ import Web3 from "web3";
 const web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7545"));
 
 web3.eth.defaultAccount = web3.eth.accounts[0];
-const account0 = "0x5aD905451bA539c3571FC57832f173c4e0707508";
+const account0 = "0xA036fa535eb60E7667833c80fD2F086E7E45D2e7";
 
-const TaskAddress = "0x36d62cdd3aB42D08004dCAe289DE2808206Fd773";
+const TaskAddress = "0x26Aa88970605D971a74F6e78F9049d327d638a89";
 
 const taskABI = [
 	{

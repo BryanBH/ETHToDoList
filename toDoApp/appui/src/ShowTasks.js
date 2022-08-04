@@ -31,8 +31,8 @@ export default function ShowTasks() {
 		getTasks();
 	}, [loading]);
 
-	console.log(todoList);
-	console.log(count);
+	// console.log(todoList);
+	// console.log(count);
 	return (
 		<>
 			<Form onSubmit={handleSubmit}>
@@ -51,23 +51,23 @@ export default function ShowTasks() {
 					? todoList.map((t) => {
 							return (
 								<div>
-									<li key={t[0].c[0]}>{t[1]}</li>
-									{/* <button onClick={deleteTask(index)}> DELETE TASK</button> */}
+									<li key={t[0].c[0]}>
+										{t[1]} - 5 days left
+									</li>
+									<Button
+										onClick={async function deleteTask() {
+											await taskContract.deleteTask(
+												t[0].c[0]
+											);
+											setLoading(false);
+										}}>
+										DELETE
+									</Button>
 								</div>
 							);
 					  })
 					: null}
 			</ul>
-
-			<div>
-				<Button
-					onClick={async function deleteTask() {
-						await taskContract.deleteTask(3);
-						setLoading(false);
-					}}>
-					DELETE
-				</Button>
-			</div>
 		</>
 	);
 }
