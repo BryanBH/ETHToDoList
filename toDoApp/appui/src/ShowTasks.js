@@ -7,6 +7,7 @@ export default function ShowTasks() {
 	const [count, setCount] = useState(0);
 	const [loading, setLoading] = useState(false);
 	const [newTask, setNewTask] = useState("");
+	const [dueDate, setDueDate] = useState(0);
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
@@ -31,7 +32,7 @@ export default function ShowTasks() {
 		getTasks();
 	}, [loading]);
 
-	// console.log(todoList);
+	console.log(todoList);
 	// console.log(count);
 	return (
 		<>
@@ -45,24 +46,35 @@ export default function ShowTasks() {
 					/>
 					<Button type="submit">ADD TASK</Button>
 				</Form.Group>
+
+				{/* <Form.Group controlId="taskDate">
+					<Form.Control
+						type="number"
+						placeholder="Task Due Date"
+						value={dueDate}
+						onChange={(event) => setDueDate(event.target.value)}
+					/>
+				</Form.Group> */}
 			</Form>
 			<ul>
 				{todoList && todoList.length
 					? todoList.map((t) => {
 							return (
 								<div>
-									<li key={t[0].c[0]}>
-										{t[1]} - 5 days left
-									</li>
-									<Button
-										onClick={async function deleteTask() {
-											await taskContract.deleteTask(
-												t[0].c[0]
-											);
-											setLoading(false);
-										}}>
-										DELETE
-									</Button>
+									{t[2] === false ? (
+										<>
+											<li key={t[0].c[0]}>{t[1]}</li>
+											<Button
+												onClick={async function deleteTask() {
+													await taskContract.deleteTask(
+														t[0].c[0]
+													);
+													setLoading(false);
+												}}>
+												Completed
+											</Button>
+										</>
+									) : null}
 								</div>
 							);
 					  })

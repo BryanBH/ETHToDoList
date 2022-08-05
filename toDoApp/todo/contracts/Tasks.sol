@@ -23,15 +23,14 @@ contract Tasks {
 
 
 
-    function deleteTask(uint256 _countTaskIndex) external {
+    function deleteTask(uint256 _countTaskIndex) public {
         Task memory currentTask = tasks[_countTaskIndex];
         uint256 currID = currentTask.id;
-        for(uint256 i = 0; i < _countTaskIndex; i++){
+        for(uint256 i = 1; i <= _countTaskIndex; i++){
             if(tasks[i].id == currID)
                 {
-                    delete tasks[i];
+                    tasks[i].complete = true;
                 }
         }
-        countTasks--;
     }
 }
