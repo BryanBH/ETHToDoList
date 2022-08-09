@@ -10,7 +10,7 @@ function App() {
 		<div className="App">
 			<header className="App-header">
 				<h1>ETH Todo list</h1>
-				<p>Blockchain final project</p>
+				<p>Blockchain Final Project</p>
 				<ShowTasks />
 			</header>
 		</div>

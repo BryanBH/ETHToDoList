@@ -60,10 +60,10 @@ export default function ShowTasks() {
 				{todoList && todoList.length
 					? todoList.map((t) => {
 							return (
-								<div>
+								<>
 									{t[2] === false ? (
-										<>
-											<li key={t[0].c[0]}>{t[1]}</li>
+										<ul style={{width: "500px",margingBottom: "20px",display:"flex", justifyContent: "space-evenly"}}>
+											<li key={t[0].c[0]}style={{listStyle: "none"}} >{t[1]}</li>
 											<Button
 												onClick={async function deleteTask() {
 													await taskContract.deleteTask(
@@ -73,9 +73,9 @@ export default function ShowTasks() {
 												}}>
 												Completed
 											</Button>
-										</>
+										</ul>
 									) : null}
-								</div>
+								</>
 							);
 					  })
 					: null}
